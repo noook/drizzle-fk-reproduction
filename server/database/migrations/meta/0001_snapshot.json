@@ -1,10 +1,8 @@
 {
-  "id": "1f1cc932-10f0-4ff4-a4ca-6a974e56ca34",
-  "prevId": "ecf9e1e7-82a8-449a-89ed-61828ae2ea94",
-  "version": "5",
-  "dialect": "pg",
+  "version": "6",
+  "dialect": "postgresql",
   "tables": {
-    "prestation_tags": {
+    "public.prestation_tags": {
       "name": "prestation_tags",
       "schema": "",
       "columns": {
@@ -26,28 +24,28 @@
         "prestation_tags_prestation_id_prestations_id_fk": {
           "name": "prestation_tags_prestation_id_prestations_id_fk",
           "tableFrom": "prestation_tags",
-          "tableTo": "prestations",
           "columnsFrom": [
             "prestation_id"
           ],
+          "tableTo": "prestations",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         },
         "prestation_tags_tag_id_tags_id_fk": {
           "name": "prestation_tags_tag_id_tags_id_fk",
           "tableFrom": "prestation_tags",
-          "tableTo": "tags",
           "columnsFrom": [
             "tag_id"
           ],
+          "tableTo": "tags",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {
@@ -61,7 +59,7 @@
       },
       "uniqueConstraints": {}
     },
-    "prestations": {
+    "public.prestations": {
       "name": "prestations",
       "schema": "",
       "columns": {
@@ -96,7 +94,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "tags": {
+    "public.tags": {
       "name": "tags",
       "schema": "",
       "columns": {
@@ -120,21 +118,24 @@
     }
   },
   "enums": {
-    "prestation_type": {
+    "public.prestation_type": {
       "name": "prestation_type",
-      "values": {
-        "course": "course",
-        "multi_year_plan": "multi_year_plan",
-        "document_validation": "document_validation",
-        "redesign": "redesign",
-        "audit": "audit"
-      }
+      "schema": "public",
+      "values": [
+        "course",
+        "multi_year_plan",
+        "document_validation",
+        "redesign",
+        "audit"
+      ]
     }
   },
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "1f1cc932-10f0-4ff4-a4ca-6a974e56ca34",
+  "prevId": "ecf9e1e7-82a8-449a-89ed-61828ae2ea94"
 }

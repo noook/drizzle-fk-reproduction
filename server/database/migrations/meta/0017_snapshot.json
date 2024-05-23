@@ -1,10 +1,8 @@
 {
-  "id": "e7beb788-f60d-40b1-873a-b39ef152264e",
-  "prevId": "593f5b45-4864-44ac-b319-21eab35f20aa",
-  "version": "5",
-  "dialect": "pg",
+  "version": "6",
+  "dialect": "postgresql",
   "tables": {
-    "form_resources": {
+    "public.form_resources": {
       "name": "form_resources",
       "schema": "",
       "columns": {
@@ -41,7 +39,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "audit_orders": {
+    "public.audit_orders": {
       "name": "audit_orders",
       "schema": "",
       "columns": {
@@ -89,34 +87,34 @@
         "audit_orders_online_content_resource_id_form_resources_id_fk": {
           "name": "audit_orders_online_content_resource_id_form_resources_id_fk",
           "tableFrom": "audit_orders",
-          "tableTo": "form_resources",
           "columnsFrom": [
             "online_content_resource_id"
           ],
+          "tableTo": "form_resources",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         },
         "audit_orders_offline_content_resource_id_form_resources_id_fk": {
           "name": "audit_orders_offline_content_resource_id_form_resources_id_fk",
           "tableFrom": "audit_orders",
-          "tableTo": "form_resources",
           "columnsFrom": [
             "offline_content_resource_id"
           ],
+          "tableTo": "form_resources",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "course_orders": {
+    "public.course_orders": {
       "name": "course_orders",
       "schema": "",
       "columns": {
@@ -152,21 +150,21 @@
         "course_orders_signatory_id_user_infos_id_fk": {
           "name": "course_orders_signatory_id_user_infos_id_fk",
           "tableFrom": "course_orders",
-          "tableTo": "user_infos",
           "columnsFrom": [
             "signatory_id"
           ],
+          "tableTo": "user_infos",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "document_validation_orders": {
+    "public.document_validation_orders": {
       "name": "document_validation_orders",
       "schema": "",
       "columns": {
@@ -202,21 +200,21 @@
         "document_validation_orders_documents_resource_id_form_resources_id_fk": {
           "name": "document_validation_orders_documents_resource_id_form_resources_id_fk",
           "tableFrom": "document_validation_orders",
-          "tableTo": "form_resources",
           "columnsFrom": [
             "documents_resource_id"
           ],
+          "tableTo": "form_resources",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "multi_year_plan_orders": {
+    "public.multi_year_plan_orders": {
       "name": "multi_year_plan_orders",
       "schema": "",
       "columns": {
@@ -258,21 +256,21 @@
         "multi_year_plan_orders_current_plan_resource_id_form_resources_id_fk": {
           "name": "multi_year_plan_orders_current_plan_resource_id_form_resources_id_fk",
           "tableFrom": "multi_year_plan_orders",
-          "tableTo": "form_resources",
           "columnsFrom": [
             "current_plan_resource_id"
           ],
+          "tableTo": "form_resources",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "orders": {
+    "public.orders": {
       "name": "orders",
       "schema": "",
       "columns": {
@@ -319,47 +317,47 @@
         "orders_requester_id_user_infos_id_fk": {
           "name": "orders_requester_id_user_infos_id_fk",
           "tableFrom": "orders",
-          "tableTo": "user_infos",
           "columnsFrom": [
             "requester_id"
           ],
+          "tableTo": "user_infos",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         },
         "orders_company_info_id_company_infos_id_fk": {
           "name": "orders_company_info_id_company_infos_id_fk",
           "tableFrom": "orders",
-          "tableTo": "company_infos",
           "columnsFrom": [
             "company_info_id"
           ],
+          "tableTo": "company_infos",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         },
         "orders_prestation_id_prestations_id_fk": {
           "name": "orders_prestation_id_prestations_id_fk",
           "tableFrom": "orders",
-          "tableTo": "prestations",
           "columnsFrom": [
             "prestation_id"
           ],
+          "tableTo": "prestations",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "redesign_orders": {
+    "public.redesign_orders": {
       "name": "redesign_orders",
       "schema": "",
       "columns": {
@@ -395,21 +393,21 @@
         "redesign_orders_specs_resource_id_form_resources_id_fk": {
           "name": "redesign_orders_specs_resource_id_form_resources_id_fk",
           "tableFrom": "redesign_orders",
-          "tableTo": "form_resources",
           "columnsFrom": [
             "specs_resource_id"
           ],
+          "tableTo": "form_resources",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "prestation_tags": {
+    "public.prestation_tags": {
       "name": "prestation_tags",
       "schema": "",
       "columns": {
@@ -431,28 +429,28 @@
         "prestation_tags_prestation_id_prestations_id_fk": {
           "name": "prestation_tags_prestation_id_prestations_id_fk",
           "tableFrom": "prestation_tags",
-          "tableTo": "prestations",
           "columnsFrom": [
             "prestation_id"
           ],
+          "tableTo": "prestations",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         },
         "prestation_tags_tag_id_tags_id_fk": {
           "name": "prestation_tags_tag_id_tags_id_fk",
           "tableFrom": "prestation_tags",
-          "tableTo": "tags",
           "columnsFrom": [
             "tag_id"
           ],
+          "tableTo": "tags",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {
@@ -466,7 +464,7 @@
       },
       "uniqueConstraints": {}
     },
-    "prestations": {
+    "public.prestations": {
       "name": "prestations",
       "schema": "",
       "columns": {
@@ -501,7 +499,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "tags": {
+    "public.tags": {
       "name": "tags",
       "schema": "",
       "columns": {
@@ -523,7 +521,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "company_infos": {
+    "public.company_infos": {
       "name": "company_infos",
       "schema": "",
       "columns": {
@@ -558,7 +556,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "user_infos": {
+    "public.user_infos": {
       "name": "user_infos",
       "schema": "",
       "columns": {
@@ -601,21 +599,24 @@
     }
   },
   "enums": {
-    "prestation_type": {
+    "public.prestation_type": {
       "name": "prestation_type",
-      "values": {
-        "course": "course",
-        "multi_year_plan": "multi_year_plan",
-        "document_validation": "document_validation",
-        "redesign": "redesign",
-        "audit": "audit"
-      }
+      "schema": "public",
+      "values": [
+        "course",
+        "multi_year_plan",
+        "document_validation",
+        "redesign",
+        "audit"
+      ]
     }
   },
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "e7beb788-f60d-40b1-873a-b39ef152264e",
+  "prevId": "593f5b45-4864-44ac-b319-21eab35f20aa"
 }

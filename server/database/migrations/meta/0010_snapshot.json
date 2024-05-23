@@ -1,10 +1,8 @@
 {
-  "id": "fe245197-9687-42dc-acfd-3cd85d17cb5a",
-  "prevId": "587072dc-1a17-486d-a88d-d2a479973980",
-  "version": "5",
-  "dialect": "pg",
+  "version": "6",
+  "dialect": "postgresql",
   "tables": {
-    "form_resources": {
+    "public.form_resources": {
       "name": "form_resources",
       "schema": "",
       "columns": {
@@ -41,7 +39,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "audit_orders": {
+    "public.audit_orders": {
       "name": "audit_orders",
       "schema": "",
       "columns": {
@@ -109,7 +107,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "course_orders": {
+    "public.course_orders": {
       "name": "course_orders",
       "schema": "",
       "columns": {
@@ -152,7 +150,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "document_validation_orders": {
+    "public.document_validation_orders": {
       "name": "document_validation_orders",
       "schema": "",
       "columns": {
@@ -195,7 +193,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "multi_year_plan_orders": {
+    "public.multi_year_plan_orders": {
       "name": "multi_year_plan_orders",
       "schema": "",
       "columns": {
@@ -244,7 +242,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "orders": {
+    "public.orders": {
       "name": "orders",
       "schema": "",
       "columns": {
@@ -312,7 +310,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "redesign_orders": {
+    "public.redesign_orders": {
       "name": "redesign_orders",
       "schema": "",
       "columns": {
@@ -355,7 +353,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "prestation_tags": {
+    "public.prestation_tags": {
       "name": "prestation_tags",
       "schema": "",
       "columns": {
@@ -412,7 +410,7 @@
       },
       "uniqueConstraints": {}
     },
-    "prestations": {
+    "public.prestations": {
       "name": "prestations",
       "schema": "",
       "columns": {
@@ -447,7 +445,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "tags": {
+    "public.tags": {
       "name": "tags",
       "schema": "",
       "columns": {
@@ -469,7 +467,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "company_infos": {
+    "public.company_infos": {
       "name": "company_infos",
       "schema": "",
       "columns": {
@@ -504,7 +502,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "user_infos": {
+    "public.user_infos": {
       "name": "user_infos",
       "schema": "",
       "columns": {
@@ -547,21 +545,24 @@
     }
   },
   "enums": {
-    "prestation_type": {
+    "public.prestation_type": {
       "name": "prestation_type",
-      "values": {
-        "course": "course",
-        "multi_year_plan": "multi_year_plan",
-        "document_validation": "document_validation",
-        "redesign": "redesign",
-        "audit": "audit"
-      }
+      "schema": "public",
+      "values": [
+        "course",
+        "multi_year_plan",
+        "document_validation",
+        "redesign",
+        "audit"
+      ]
     }
   },
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "fe245197-9687-42dc-acfd-3cd85d17cb5a",
+  "prevId": "587072dc-1a17-486d-a88d-d2a479973980"
 }
