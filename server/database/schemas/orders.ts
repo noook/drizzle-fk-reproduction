@@ -7,13 +7,13 @@ import { T_formResources } from './form-resources'
 export const T_orders = pgTable('orders', {
   id: serial('id').primaryKey(),
   requesterId: uuid('requester_id').notNull()
-    // .references(() => T_userInfos.id, { onDelete: 'cascade' })
+    .references(() => T_userInfos.id, { onDelete: 'cascade' })
   ,
   companyInfoId: uuid('company_info_id')
-    // .references(() => T_companyInfos.id, { onDelete: 'set null' })
+    .references(() => T_companyInfos.id, { onDelete: 'set null' })
   ,
   prestationId: uuid('prestation_id').notNull()
-    // .references(() => T_prestations.id, { onDelete: 'cascade' })
+    .references(() => T_prestations.id, { onDelete: 'cascade' })
   ,
   formId: uuid('form_id').notNull(),
   createdAt: timestamp('created_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
@@ -39,7 +39,7 @@ export const T_courseOrders = pgTable('course_orders', {
   modality: text('modality').notNull(),
   context: text('context').notNull().default(''),
   signatoryId: uuid('signatory_id')
-    // .references(() => T_userInfos.id, { onDelete: 'cascade' })
+    .references(() => T_userInfos.id, { onDelete: 'cascade' })
   ,
 })
 
