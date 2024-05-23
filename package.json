@@ -1,0 +1,24 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "migrate": "drizzle-kit generate:pg",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.10",
+    "nuxt": "^3.11.2",
+    "pg": "^8.11.5",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.6",
+    "drizzle-kit": "^0.20.18"
+  }
+}

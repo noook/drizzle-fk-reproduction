@@ -1,0 +1,1 @@
+ALTER TABLE "audit_orders" ADD COLUMN "norm" text NOT NULL;

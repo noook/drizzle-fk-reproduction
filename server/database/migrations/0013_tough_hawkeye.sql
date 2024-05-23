@@ -1,0 +1,1 @@
+ALTER TABLE "course_orders" ADD COLUMN "context" text DEFAULT '' NOT NULL;

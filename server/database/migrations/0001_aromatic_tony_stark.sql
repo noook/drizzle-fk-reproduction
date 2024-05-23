@@ -1,0 +1,2 @@
+ALTER TABLE "prestation_tags" DROP CONSTRAINT "prestation_tag_unique";--> statement-breakpoint
+ALTER TABLE "prestation_tags" ADD CONSTRAINT "prestation_tags_prestation_id_tag_id_pk" PRIMARY KEY("prestation_id","tag_id");

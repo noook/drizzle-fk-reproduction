@@ -1,0 +1,567 @@
+{
+  "id": "2fa18c2b-cfd1-4a2a-b1ba-4640b208c88c",
+  "prevId": "fe245197-9687-42dc-acfd-3cd85d17cb5a",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "form_resources": {
+      "name": "form_resources",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "urls": {
+          "name": "urls",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "ARRAY[]::text[]"
+        },
+        "files": {
+          "name": "files",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "ARRAY[]::text[]"
+        },
+        "access_code": {
+          "name": "access_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "audit_orders": {
+      "name": "audit_orders",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "context": {
+          "name": "context",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "norm": {
+          "name": "norm",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "online_content_resource_id": {
+          "name": "online_content_resource_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "offline_content_resource_id": {
+          "name": "offline_content_resource_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "audit_orders_online_content_resource_id_form_resources_id_fk": {
+          "name": "audit_orders_online_content_resource_id_form_resources_id_fk",
+          "tableFrom": "audit_orders",
+          "columnsFrom": [
+            "online_content_resource_id"
+          ],
+          "tableTo": "form_resources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "audit_orders_offline_content_resource_id_form_resources_id_fk": {
+          "name": "audit_orders_offline_content_resource_id_form_resources_id_fk",
+          "tableFrom": "audit_orders",
+          "columnsFrom": [
+            "offline_content_resource_id"
+          ],
+          "tableTo": "form_resources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "course_orders": {
+      "name": "course_orders",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "modality": {
+          "name": "modality",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "signatory": {
+          "name": "signatory",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "course_orders_signatory_user_infos_id_fk": {
+          "name": "course_orders_signatory_user_infos_id_fk",
+          "tableFrom": "course_orders",
+          "columnsFrom": [
+            "signatory"
+          ],
+          "tableTo": "user_infos",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "document_validation_orders": {
+      "name": "document_validation_orders",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "context": {
+          "name": "context",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "documents_resource_id": {
+          "name": "documents_resource_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "document_validation_orders_documents_resource_id_form_resources_id_fk": {
+          "name": "document_validation_orders_documents_resource_id_form_resources_id_fk",
+          "tableFrom": "document_validation_orders",
+          "columnsFrom": [
+            "documents_resource_id"
+          ],
+          "tableTo": "form_resources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "multi_year_plan_orders": {
+      "name": "multi_year_plan_orders",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "context": {
+          "name": "context",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ecosystem_size": {
+          "name": "ecosystem_size",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "current_plan_resource_id": {
+          "name": "current_plan_resource_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "multi_year_plan_orders_current_plan_resource_id_form_resources_id_fk": {
+          "name": "multi_year_plan_orders_current_plan_resource_id_form_resources_id_fk",
+          "tableFrom": "multi_year_plan_orders",
+          "columnsFrom": [
+            "current_plan_resource_id"
+          ],
+          "tableTo": "form_resources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "orders": {
+      "name": "orders",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "requester_id": {
+          "name": "requester_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "prestation_id": {
+          "name": "prestation_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "form_id": {
+          "name": "form_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "orders_requester_id_user_infos_id_fk": {
+          "name": "orders_requester_id_user_infos_id_fk",
+          "tableFrom": "orders",
+          "columnsFrom": [
+            "requester_id"
+          ],
+          "tableTo": "user_infos",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "orders_prestation_id_prestations_id_fk": {
+          "name": "orders_prestation_id_prestations_id_fk",
+          "tableFrom": "orders",
+          "columnsFrom": [
+            "prestation_id"
+          ],
+          "tableTo": "prestations",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "redesign_orders": {
+      "name": "redesign_orders",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "context": {
+          "name": "context",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "specs_resource_id": {
+          "name": "specs_resource_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "redesign_orders_specs_resource_id_form_resources_id_fk": {
+          "name": "redesign_orders_specs_resource_id_form_resources_id_fk",
+          "tableFrom": "redesign_orders",
+          "columnsFrom": [
+            "specs_resource_id"
+          ],
+          "tableTo": "form_resources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "prestation_tags": {
+      "name": "prestation_tags",
+      "schema": "",
+      "columns": {
+        "prestation_id": {
+          "name": "prestation_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tag_id": {
+          "name": "tag_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "prestation_tags_prestation_id_prestations_id_fk": {
+          "name": "prestation_tags_prestation_id_prestations_id_fk",
+          "tableFrom": "prestation_tags",
+          "columnsFrom": [
+            "prestation_id"
+          ],
+          "tableTo": "prestations",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "prestation_tags_tag_id_tags_id_fk": {
+          "name": "prestation_tags_tag_id_tags_id_fk",
+          "tableFrom": "prestation_tags",
+          "columnsFrom": [
+            "tag_id"
+          ],
+          "tableTo": "tags",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "prestation_tags_prestation_id_tag_id_pk": {
+          "name": "prestation_tags_prestation_id_tag_id_pk",
+          "columns": [
+            "prestation_id",
+            "tag_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "prestations": {
+      "name": "prestations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "prestation_type",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "tags": {
+      "name": "tags",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "label": {
+          "name": "label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "company_infos": {
+      "name": "company_infos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "address": {
+          "name": "address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "siren": {
+          "name": "siren",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "user_infos": {
+      "name": "user_infos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {
+    "prestation_type": {
+      "name": "prestation_type",
+      "values": {
+        "course": "course",
+        "multi_year_plan": "multi_year_plan",
+        "document_validation": "document_validation",
+        "redesign": "redesign",
+        "audit": "audit"
+      }
+    }
+  },
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
