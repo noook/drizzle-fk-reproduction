@@ -44,6 +44,6 @@ This will generate the SQL migration file in the `migrations` folder.
 
 ## Running the migration
 
-To run the migration, you can visit <http://localhost:3000/_nitro/tasks/db:migrate>. The migration should be ran automatically.
+To run the migration, you can visit <http://localhost:3000/_nitro/tasks/db:migrate>. The migration should be ran automatically. (Note that the dev server needs ot be running)
 
 To inspect the database, you can use the **Studio URL** provided by supabase when you started the instance.
