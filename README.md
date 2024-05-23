@@ -7,17 +7,20 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
 # pnpm
 pnpm install
+```
 
-# yarn
-yarn install
+This project uses a local instance of Supabase, you can start it with the following command:
 
-# bun
-bun install
+```bash
+npx supabase start
+```
+
+Upon start, Supabase will provide you the database URL. Copy it, and paste it in the `.env` file:
+
+```bash
+DATABASE_URL=<supabase-database-url>
 ```
 
 ## Development Server
@@ -25,51 +28,22 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
 # pnpm
 pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Reproduction
 
-Build the application for production:
+You can checkout the last commit to see the diff, and run the following command:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+pnpm migrate
 ```
 
-Locally preview production build:
+This will generate the SQL migration file in the `migrations` folder.
 
-```bash
-# npm
-npm run preview
+## Running the migration
 
-# pnpm
-pnpm run preview
+To run the migration, you can visit <http://localhost:3000/_nitro/tasks/db:migrate>. The migration should be ran automatically.
 
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+To inspect the database, you can use the **Studio URL** provided by supabase when you started the instance.
